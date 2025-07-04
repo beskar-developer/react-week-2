@@ -38,9 +38,9 @@ importers:
       uuid:
         specifier: ^10.0.0
         version: 10.0.0
-      yup:
-        specifier: ^1.4.0
-        version: 1.6.1
+      zod:
+        specifier: ^3.25.73
+        version: 3.25.73
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.3.0
@@ -1998,9 +1998,6 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  property-expr@2.0.6:
-    resolution: {integrity: sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==}
-
   proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
@@ -2178,9 +2175,6 @@ packages:
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
-  tiny-case@1.0.3:
-    resolution: {integrity: sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==}
-
   tinyexec@1.0.1:
     resolution: {integrity: sha512-5uC6DDlmeqiOwCPmK9jMSdOuZTh8bU39Ys6yidB+UTt5hfZUPGAypSgFRiEp+jbi9qH40BLDvy85jIU88wKSqw==}
 
@@ -2191,9 +2185,6 @@ packages:
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
-
-  toposort@2.0.2:
-    resolution: {integrity: sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==}
 
   ts-api-utils@2.1.0:
     resolution: {integrity: sha512-CUgTZL1irw8u29bzrOD/nH85jqyc74D6SshFgujOIA7osm2Rz7dYH77agkx7H4FBNxDq7Cjf+IjaX/8zwFW+ZQ==}
@@ -2217,10 +2208,6 @@ packages:
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
-
-  type-fest@2.19.0:
-    resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
-    engines: {node: '>=12.20'}
 
   typescript-eslint@8.35.0:
     resolution: {integrity: sha512-uEnz70b7kBz6eg/j0Czy6K5NivaYopgxRjsnAJ2Fx5oTLo3wefTHIbL7AkQr1+7tJCRVpTs/wiM8JR/11Loq9A==}
@@ -2386,17 +2373,14 @@ packages:
     resolution: {integrity: sha512-AyeEbWOu/TAXdxlV9wmGcR0+yh2j3vYPGOECcIj2S7MkrLyC7ne+oye2BKTItt0ii2PHk4cDy+95+LshzbXnGg==}
     engines: {node: '>=12.20'}
 
-  yup@1.6.1:
-    resolution: {integrity: sha512-JED8pB50qbA4FOkDol0bYF/p60qSEDQqBD0/qeIrUCG1KbPBIQ776fCUNb9ldbPcSTxA69g/47XTo4TqWiuXOA==}
-
   zod-validation-error@3.5.2:
     resolution: {integrity: sha512-mdi7YOLtram5dzJ5aDtm1AG9+mxRma1iaMrZdYIpFO7epdKBUwLHIxTF8CPDeCQ828zAXYtizrKlEJAtzgfgrw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       zod: ^3.25.0
 
-  zod@3.25.71:
-    resolution: {integrity: sha512-BsBc/NPk7h8WsUWYWYL+BajcJPY8YhjelaWu2NMLuzgraKAz4Lb4/6K11g9jpuDetjMiqhZ6YaexFLOC0Ogi3Q==}
+  zod@3.25.73:
+    resolution: {integrity: sha512-fuIKbQAWQl22Ba5d1quwEETQYjqnpKVyZIWAhbnnHgnDd3a+z4YgEfkI5SZ2xMELnLAXo/Flk2uXgysZNf0uaA==}
 
 snapshots:
 
@@ -3507,8 +3491,8 @@ snapshots:
       '@babel/plugin-transform-private-methods': 7.27.1(@babel/core@7.27.7)
       eslint: 9.30.0(jiti@2.4.2)
       hermes-parser: 0.25.1
-      zod: 3.25.71
-      zod-validation-error: 3.5.2(zod@3.25.71)
+      zod: 3.25.73
+      zod-validation-error: 3.5.2(zod@3.25.73)
     transitivePeerDependencies:
       - supports-color
 
@@ -4133,8 +4117,6 @@ snapshots:
 
   prettier@3.6.2: {}
 
-  property-expr@2.0.6: {}
-
   proxy-from-env@1.1.0: {}
 
   punycode@2.3.1: {}
@@ -4298,8 +4280,6 @@ snapshots:
 
   through@2.3.8: {}
 
-  tiny-case@1.0.3: {}
-
   tinyexec@1.0.1: {}
 
   tinyglobby@0.2.14:
@@ -4310,8 +4290,6 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
-
-  toposort@2.0.2: {}
 
   ts-api-utils@2.1.0(typescript@5.8.3):
     dependencies:
@@ -4326,8 +4304,6 @@ snapshots:
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
-
-  type-fest@2.19.0: {}
 
   typescript-eslint@8.35.0(eslint@9.30.0(jiti@2.4.2))(typescript@5.8.3):
     dependencies:
@@ -4477,15 +4453,8 @@ snapshots:
 
   yocto-queue@1.2.1: {}
 
-  yup@1.6.1:
+  zod-validation-error@3.5.2(zod@3.25.73):
     dependencies:
-      property-expr: 2.0.6
-      tiny-case: 1.0.3
-      toposort: 2.0.2
-      type-fest: 2.19.0
+      zod: 3.25.73
 
-  zod-validation-error@3.5.2(zod@3.25.71):
-    dependencies:
-      zod: 3.25.71
-
-  zod@3.25.71: {}
+  zod@3.25.73: {}

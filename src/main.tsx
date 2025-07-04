@@ -1,7 +1,6 @@
 import { createRoot } from "react-dom/client";
 
 import App from "./App.tsx";
-import ToDoListProvider from "@/providers/ToDoList/index.tsx";
 
 import { VersionLogger } from "@shared-vendor/helpers";
 
@@ -14,7 +13,7 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <Compose components={[ThemeModeProvider, ErrorBoundary, ToDoListProvider]}>
+    <Compose components={[ThemeModeProvider, ErrorBoundary]}>
       <App />
     </Compose>
   </StrictMode>,
