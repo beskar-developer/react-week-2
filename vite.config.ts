@@ -36,6 +36,7 @@ const AUTO_IMPORT_CONFIG = {
       "motion/react-client": [["*", "motion"]],
       "motion/react": ["AnimatePresence"],
       "tailwind-merge": ["twMerge"],
+      "react-hot-toast": ["default", "toast"],
     },
   ],
   dirs: [
@@ -58,7 +59,7 @@ const AUTO_IMPORT_CONFIG = {
 
 const REACT_CONFIG = {
   babel: {
-    plugins: [["babel-plugin-react-compiler"], {}],
+    plugins: [["babel-plugin-react-compiler"], ["@babel/plugin-proposal-decorators", { version: "2023-11" }]],
   },
 };
 
@@ -67,6 +68,16 @@ export default ({ mode = "dev" } = {}) => {
 
   return defineConfig({
     envDir: ENV_DIRECTORY,
+    server: {
+      proxy: {
+        "^/(post)(/.*)?$": {
+          target: process.env.VITE_DEFAULT_URL,
+          ws: false,
+          secure: false,
+          changeOrigin: true,
+        },
+      },
+    },
     plugins: [
       react(REACT_CONFIG),
       AutoImportPlugin(AUTO_IMPORT_CONFIG),
