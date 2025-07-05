@@ -1,8 +1,9 @@
+import ProductRoot from "@/views/Product/Root.view";
+
 const App = () => {
-  const [count, setCount] = usePersistState(0, "count");
   return (
-    <div className="app-container">
-      <Counter count={count} onCountChange={setCount} />
+    <div className={twMerge("app-container dark:text-white", "p-0")}>
+      <ProductRoot />
     </div>
   );
 };
