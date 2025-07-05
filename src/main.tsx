@@ -13,7 +13,7 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <Compose components={[ThemeModeProvider, ErrorBoundary]}>
+    <Compose components={[ThemeModeProvider, ErrorBoundary, Toaster]}>
       <App />
     </Compose>
   </StrictMode>,
