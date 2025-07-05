@@ -22,3 +22,5 @@ export interface Repository {
 export type Service = Repository;
 
 export type PostAction = "ADD" | "EDIT" | "DELETE" | "DETAILS";
+
+export type OnActionClick = (id: Post["id"], name: PostAction) => void;
