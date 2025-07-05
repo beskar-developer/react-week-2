@@ -13,7 +13,7 @@ const PRODUCTS = Array.from({ length: 10 }, () => ({
   image: faker.image.urlPicsumPhotos({ width: IMAGE_SIZE, height: IMAGE_SIZE }),
 }));
 
-const List = () => {
+const Root = () => {
   const [products] = useState(PRODUCTS);
   const { items: searchedProducts, searchedValue, setSearchedValue } = useSearch(products, ["name", "price"]);
 
@@ -22,7 +22,7 @@ const List = () => {
       <ActionBar
         itemCount={products.length}
         searchedValue={searchedValue}
-        setSearchedValue={setSearchedValue}
+        onSearchedValueChange={setSearchedValue}
       />
 
       <ProductList items={searchedProducts} />
@@ -30,4 +30,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default Root;

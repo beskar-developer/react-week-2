@@ -1,12 +1,12 @@
 interface Props {
   searchedValue: string;
-  setSearchedValue: (value: string) => void;
+  onSearchedValueChange: (value: string) => void;
   itemCount: number;
 }
 
-const ActionBar = ({ itemCount, searchedValue, setSearchedValue }: Props) => {
+const ActionBar = ({ itemCount, searchedValue, onSearchedValueChange }: Props) => {
   return (
-    <Card className="flex flex-col items-center justify-between gap-4 overflow-visible rounded-none border-b-2 border-b-indigo-500 p-4 sm:flex-row sm:gap-0 sm:p-8">
+    <Card className="flex flex-col items-center justify-between gap-4 overflow-visible rounded-none border-none p-4 opacity-95 sm:flex-row sm:gap-0 sm:p-8">
       <h1 className="text-xl font-extrabold sm:text-3xl">محصولات</h1>
 
       <div className="flex flex-col gap-10 sm:flex-row">
@@ -15,7 +15,7 @@ const ActionBar = ({ itemCount, searchedValue, setSearchedValue }: Props) => {
           label="جستجو"
           disabled={!itemCount}
           value={searchedValue}
-          onChange={(event) => setSearchedValue(event.target.value)}
+          onChange={(event) => onSearchedValueChange(event.target.value)}
         />
 
         <ThemeToggleButton />
