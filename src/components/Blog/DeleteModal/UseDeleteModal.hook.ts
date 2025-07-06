@@ -1,6 +1,7 @@
 import type { Props as ButtonProps } from "@shared-vendor/components/Button/BaseButton.type";
 import type { Props } from "./DeleteModal.type";
-import service from "@/service/Blog";
+
+import service from "@/services/Blog";
 
 const useDeleteModal = ({ id, onClose, onDelete }: Props) => {
   const { execute, loading } = usePromise(
@@ -14,6 +15,7 @@ const useDeleteModal = ({ id, onClose, onDelete }: Props) => {
     },
     {
       key: "DELETE_POST",
+      ttl: 0,
     },
   );
 
