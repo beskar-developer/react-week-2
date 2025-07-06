@@ -1,4 +1,4 @@
-import { ErrorMessage } from "@shared-vendor/types";
+import { Message } from "@shared-vendor/types";
 import type {
   AddPayload,
   DeletePayload,
@@ -18,7 +18,7 @@ import {
 } from "@/schemas/Blog";
 
 class Service implements IService {
-  @ErrorMessage("خطا در دریافت پست ها")
+  @Message({ error: "خطا در دریافت پست ها" })
   async getAll() {
     const response = await repository.getAll();
 
@@ -27,7 +27,7 @@ class Service implements IService {
     return parsedResponse;
   }
 
-  @ErrorMessage("خطا در دریافت پست")
+  @Message({ error: "خطا در دریافت پست" })
   async getById(payload: GetByIdPayload) {
     const response = await repository.getById(payload);
 
@@ -36,7 +36,7 @@ class Service implements IService {
     return parsedResponse;
   }
 
-  @ErrorMessage("خطا در افزودن پست")
+  @Message({ error: "خطا در افزودن پست", success: "پست افزوده شد" })
   async add(payload: AddPayload) {
     const response = await repository.add(payload);
 
@@ -45,7 +45,7 @@ class Service implements IService {
     return parsedResponse;
   }
 
-  @ErrorMessage("خطا در ویرایش پست")
+  @Message({ error: "خطا در ویرایش پست", success: "پست ویرایش شد" })
   async edit(payload: EditPayload) {
     const response = await repository.edit(payload);
 
@@ -54,7 +54,7 @@ class Service implements IService {
     return parsedResponse;
   }
 
-  @ErrorMessage("خطا در حذف پست")
+  @Message({ error: "خطا در حذف پست", success: "پست حذف شد" })
   async delete(payload: DeletePayload) {
     const response = await repository.delete(payload);
 
