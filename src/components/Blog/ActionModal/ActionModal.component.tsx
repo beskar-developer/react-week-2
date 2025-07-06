@@ -4,14 +4,12 @@ import type { Props } from "./ActionModal.type";
 
 import useActionModal from "./UseActionModal.hook";
 
-const ActionModal = ({ title, content, id, onClose, onEdit, onAdd }: Props) => {
+const ActionModal = ({ onClose, onEdit, onAdd, ...defaultValues }: Props) => {
   const { actions, fields, isSubmitting, errors, register, onSubmit } = useActionModal({
-    title,
-    content,
-    id,
     onClose,
     onAdd,
     onEdit,
+    ...defaultValues,
   });
 
   return (

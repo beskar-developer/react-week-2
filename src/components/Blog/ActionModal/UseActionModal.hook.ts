@@ -75,7 +75,7 @@ const useActionModal = ({ onClose, onAdd, onEdit, ...defaultValues }: Props) => 
   const actions: ButtonProps[] = [
     {
       name: "ADD",
-      children: "افزودن",
+      children: isEditMode ? "ویرایش" : "افزودن",
       type: "submit",
       loading: isSubmitting,
     },
