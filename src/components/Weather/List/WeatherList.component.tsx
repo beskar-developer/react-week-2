@@ -1,17 +1,10 @@
 import type { Props as ButtonProps } from "@shared-vendor/components/Button/BaseButton.type";
-import type { Weather } from "@/types/Weather";
+import type { Props } from "./WeatherList.type";
 
-import { wrap } from "motion";
+import useWeatherList from "./UseWeatherList.hook";
 
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import WeatherCard from "./WeatherCard.component";
-
-interface Props {
-  items: Weather[];
-  cityName?: string;
-}
-
-type Direction = 1 | -1;
+import { WeatherCard } from "@/components/Weather";
 
 const DEFAULT_BUTTON_PROPS: ButtonProps = {
   className: "shrink-0",
@@ -20,16 +13,7 @@ const DEFAULT_BUTTON_PROPS: ButtonProps = {
 };
 
 const WeatherList = ({ items, cityName }: Props) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [direction, setDirection] = useState<Direction>(1);
-
-  const selectedItem = items[selectedIndex];
-
-  const setSlide = (newDirection: 1 | -1) => {
-    const nextIndex = wrap(0, items.length - 1, selectedIndex + newDirection);
-    setSelectedIndex(nextIndex);
-    setDirection(newDirection);
-  };
+  const { direction, selectedItem, goToNext, goToPrevious } = useWeatherList(items);
 
   return (
     <NotFoundContainer message="لطفا نام شهر را جستجو کنید" itemCount={items.length}>
@@ -40,7 +24,7 @@ const WeatherList = ({ items, cityName }: Props) => {
       )}
 
       <div className="relative flex items-center justify-center gap-4">
-        <BaseButton onClick={() => setSlide(1)} {...DEFAULT_BUTTON_PROPS}>
+        <BaseButton onClick={goToNext} {...DEFAULT_BUTTON_PROPS}>
           <AiOutlineArrowRight />
         </BaseButton>
 
@@ -48,7 +32,7 @@ const WeatherList = ({ items, cityName }: Props) => {
           <WeatherCard key={selectedItem?.time} {...selectedItem} />
         </AnimatePresence>
 
-        <BaseButton onClick={() => setSlide(-1)} {...DEFAULT_BUTTON_PROPS}>
+        <BaseButton onClick={goToPrevious} {...DEFAULT_BUTTON_PROPS}>
           <AiOutlineArrowLeft />
         </BaseButton>
       </div>
