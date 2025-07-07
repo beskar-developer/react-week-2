@@ -3,7 +3,7 @@ import type {
   AddPayload,
   DeletePayload,
   EditPayload,
-  GetByIdPayload,
+  GetByIdParams,
   Service as IService,
 } from "@/types/Blog";
 
@@ -28,8 +28,8 @@ class Service implements IService {
   }
 
   @Message({ error: "خطا در دریافت پست" })
-  async getById(payload: GetByIdPayload) {
-    const response = await repository.getById(payload);
+  async getById(params: GetByIdParams) {
+    const response = await repository.getById(params);
 
     const parsedResponse = getByIdResponseSchema.parse(response);
 

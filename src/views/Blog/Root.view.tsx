@@ -44,7 +44,10 @@ const Root = () => {
 
         <div className="size-full pb-32 sm:pb-36">
           {loading ? (
-            <FullPageLoading message="در حال بارگیری پست ها..." />
+            <LoadingMessage
+              className="fixed top-0 left-0 h-screen w-screen"
+              message="در حال بارگیری پست ها..."
+            />
           ) : (
             <PostList items={searchedPosts} onActionClick={(id) => setSelectedPostId(id)} />
           )}

@@ -2,7 +2,7 @@ import type {
   AddPayload,
   DeletePayload,
   EditPayload,
-  GetByIdPayload,
+  GetByIdParams,
   Repository as IRepository,
   Post,
 } from "@/types/Blog";
@@ -14,7 +14,7 @@ class Repository implements IRepository {
     return client.get<unknown, Post[]>("");
   }
 
-  getById(id: GetByIdPayload) {
+  getById(id: GetByIdParams) {
     return client.get<unknown, Post>(String(id));
   }
 
