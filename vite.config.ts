@@ -70,8 +70,20 @@ export default ({ mode = "dev" } = {}) => {
     envDir: ENV_DIRECTORY,
     server: {
       proxy: {
-        "^/(post)(/.*)?$": {
+        "^/(post)(.*)?$": {
           target: process.env.VITE_DEFAULT_URL,
+          ws: false,
+          secure: false,
+          changeOrigin: true,
+        },
+        "^/(forecast)(.*)?$": {
+          target: process.env.VITE_WEATHER_URL,
+          ws: false,
+          secure: false,
+          changeOrigin: true,
+        },
+        "^/(search)(.*)?$": {
+          target: process.env.VITE_GEO_CODING_URL,
           ws: false,
           secure: false,
           changeOrigin: true,
