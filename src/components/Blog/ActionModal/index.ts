@@ -1,1 +1,1 @@
-export { default as ActionModal } from "./ActionModal.component";
+export { default as PostActionModal } from "./PostActionModal.component";

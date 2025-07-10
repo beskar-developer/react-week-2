@@ -1,5 +1,5 @@
 import type { Props as ButtonProps } from "@shared-vendor/components/Button/BaseButton.type";
-import type { Field, FormValues, Props } from "./ActionModal.type";
+import type { Field, FormValues, IPostActionModal } from "./PostActionModal.type";
 
 import service from "@/services/Blog";
 
@@ -32,7 +32,7 @@ const DEFAULT_FORM_VALUES: Partial<FormValues> = {
   content: "",
 };
 
-const useActionModal = ({ onClose, onAdd, onEdit, ...defaultValues }: Props) => {
+const usePostActionModal = ({ onClose, onAdd, onEdit, ...defaultValues }: IPostActionModal) => {
   const {
     formState: { errors, isSubmitting },
     register,
@@ -98,4 +98,4 @@ const useActionModal = ({ onClose, onAdd, onEdit, ...defaultValues }: Props) => 
   };
 };
 
-export default useActionModal;
+export default usePostActionModal;

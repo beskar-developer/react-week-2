@@ -11,7 +11,7 @@ export type AddPayload = Omit<Post, "id">;
 export type EditPayload = Post;
 export type DeletePayload = Post["id"];
 
-export interface Repository {
+export interface IRepository {
   getAll: () => Promise<Array<Post>>;
   getById: (id: GetByIdParams) => PostPromise;
   add: (post: AddPayload) => PostPromise;
@@ -19,7 +19,7 @@ export interface Repository {
   delete: (id: DeletePayload) => PostPromise;
 }
 
-export type Service = Repository;
+export type IService = IRepository;
 
 export type PostAction = "ADD" | "EDIT" | "DELETE" | "DETAILS";
 

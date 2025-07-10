@@ -1,6 +1,6 @@
-import type { Product } from "@/types/Product";
+import type { IProduct } from "@/types/Product";
 
-const ProductCard = ({ name, price, image }: Product) => {
+const ProductCard = ({ name, price, image }: IProduct) => {
   return (
     <Card className="grid h-46 grid-cols-2 items-center gap-4 p-8">
       <ImageLoader src={image} alt={name} className="size-24 rounded-full" />

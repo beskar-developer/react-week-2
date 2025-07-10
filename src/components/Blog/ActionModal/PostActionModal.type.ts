@@ -1,6 +1,6 @@
 import type { Post } from "@/types/Blog";
 
-export interface Props extends Partial<Post> {
+export interface IPostActionModal extends Partial<Post> {
   onClose: () => void;
   onAdd?: (post: Post) => void;
   onEdit?: (post: Post) => void;

@@ -1,9 +1,9 @@
-import type { Props } from "./DeleteModal.type";
+import type { IPostDeleteModal } from "./PostDeleteModal.type";
 
-import useDeleteModal from "./UseDeleteModal.hook";
+import usePostDeleteModal from "./UsePostDeleteModal.hook";
 
-const DeleteModal = ({ id, onClose, onDelete }: Props) => {
-  const actions = useDeleteModal({
+const PostDeleteModal = ({ id, onClose, onDelete }: IPostDeleteModal) => {
+  const actions = usePostDeleteModal({
     id,
     onClose,
     onDelete,
@@ -22,4 +22,4 @@ const DeleteModal = ({ id, onClose, onDelete }: Props) => {
   );
 };
 
-export default DeleteModal;
+export default PostDeleteModal;

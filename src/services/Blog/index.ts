@@ -1,11 +1,5 @@
 import { Message } from "@shared-vendor/types";
-import type {
-  AddPayload,
-  DeletePayload,
-  EditPayload,
-  GetByIdParams,
-  Service as IService,
-} from "@/types/Blog";
+import type { AddPayload, DeletePayload, EditPayload, GetByIdParams, IService } from "@/types/Blog";
 
 import repository from "@/repositories/Blog";
 

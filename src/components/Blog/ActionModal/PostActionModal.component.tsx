@@ -1,11 +1,11 @@
 "use no memo";
 
-import type { Props } from "./ActionModal.type";
+import type { IPostActionModal } from "./PostActionModal.type";
 
-import useActionModal from "./UseActionModal.hook";
+import usePostActionModal from "./UsePostActionModal.hook";
 
-const ActionModal = ({ onClose, onEdit, onAdd, ...defaultValues }: Props) => {
-  const { actions, fields, isSubmitting, errors, register, onSubmit } = useActionModal({
+const PostActionModal = ({ onClose, onEdit, onAdd, ...defaultValues }: IPostActionModal) => {
+  const { actions, fields, isSubmitting, errors, register, onSubmit } = usePostActionModal({
     onClose,
     onAdd,
     onEdit,
@@ -33,4 +33,4 @@ const ActionModal = ({ onClose, onEdit, onAdd, ...defaultValues }: Props) => {
   );
 };
 
-export default ActionModal;
+export default PostActionModal;

@@ -3,15 +3,15 @@ import type { Props as ButtonProps } from "@shared-vendor/components/Button/Base
 
 import { AiFillDelete, AiFillEdit, AiFillFileText, AiOutlineMore } from "react-icons/ai";
 
-interface Props extends Post {
+interface IPostCard extends Post {
   onActionClick: OnActionClick;
 }
 
-interface Action extends ButtonProps {
+interface IAction extends ButtonProps {
   name: PostAction;
 }
 
-const actions: Action[] = [
+const actions: IAction[] = [
   {
     children: <AiOutlineMore className="rotate-90" />,
     name: "DETAILS",
@@ -24,7 +24,7 @@ const actions: Action[] = [
   },
 ];
 
-const PostCard = ({ id, title, content, onActionClick }: Props) => {
+const PostCard = ({ id, title, content, onActionClick }: IPostCard) => {
   return (
     <Card className="flex flex-col gap-6 p-5">
       <div className="font-xl flex items-center gap-4 font-extrabold">

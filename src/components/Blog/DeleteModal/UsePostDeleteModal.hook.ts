@@ -1,9 +1,9 @@
 import type { Props as ButtonProps } from "@shared-vendor/components/Button/BaseButton.type";
-import type { Props } from "./DeleteModal.type";
+import type { IPostDeleteModal } from "./PostDeleteModal.type";
 
 import service from "@/services/Blog";
 
-const useDeleteModal = ({ id, onClose, onDelete }: Props) => {
+const usePostDeleteModal = ({ id, onClose, onDelete }: IPostDeleteModal) => {
   const { execute, loading } = usePromise(
     async () => {
       const response = await service.delete(id);
@@ -38,4 +38,4 @@ const useDeleteModal = ({ id, onClose, onDelete }: Props) => {
   return actions;
 };
 
-export default useDeleteModal;
+export default usePostDeleteModal;

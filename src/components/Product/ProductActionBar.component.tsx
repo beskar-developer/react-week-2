@@ -1,10 +1,10 @@
-interface Props {
+interface IActionBar {
   searchedValue: string;
   onSearchedValueChange: (value: string) => void;
   itemCount: number;
 }
 
-const ActionBar = ({ itemCount, searchedValue, onSearchedValueChange }: Props) => {
+const ProductActionBar = ({ itemCount, searchedValue, onSearchedValueChange }: IActionBar) => {
   return (
     <Card className="flex flex-col items-center justify-between gap-4 overflow-visible rounded-none border-none p-4 opacity-95 sm:flex-row sm:gap-0 sm:p-8">
       <h1 className="text-xl font-extrabold sm:text-3xl">محصولات</h1>
@@ -24,4 +24,4 @@ const ActionBar = ({ itemCount, searchedValue, onSearchedValueChange }: Props) =
   );
 };
 
-export default ActionBar;
+export default ProductActionBar;

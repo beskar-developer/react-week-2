@@ -1,1 +1,1 @@
-export { default as DeleteModal } from "./DeleteModal.component";
+export { default as PostDeleteModal } from "./PostDeleteModal.component";

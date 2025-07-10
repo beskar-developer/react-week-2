@@ -1,11 +1,4 @@
-import type {
-  AddPayload,
-  DeletePayload,
-  EditPayload,
-  GetByIdParams,
-  Repository as IRepository,
-  Post,
-} from "@/types/Blog";
+import type { AddPayload, DeletePayload, EditPayload, GetByIdParams, IRepository, Post } from "@/types/Blog";
 
 import client from "@/clients/Blog";
 
