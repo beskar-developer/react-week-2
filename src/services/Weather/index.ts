@@ -1,5 +1,5 @@
 import { AutoBind, Message } from "@shared-vendor/types";
-import type { GetWeatherByGeoCodingParams, Service as IService } from "@/types/Weather";
+import type { GetWeatherByGeoCodingParams, IService } from "@/types/Weather";
 
 import repository from "@/repositories/Weather";
 

@@ -1,23 +1,9 @@
-import type { Direction, Props } from "./WeatherList.type";
+import type { IWeatherList } from "./WeatherList.type";
 
-import { wrap } from "motion";
+const useWeatherList = (items: IWeatherList["items"]) => {
+  const itemCount = items.length;
 
-const useWeatherList = (items: Props["items"]) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [direction, setDirection] = useState<Direction>(1);
-
-  const selectedItem = items[selectedIndex];
-
-  const setSlide = (newDirection: 1 | -1) => {
-    const nextIndex = wrap(0, items.length, selectedIndex + newDirection);
-    setSelectedIndex(nextIndex);
-    setDirection(newDirection);
-  };
-
-  const goToNext = () => setSlide(1);
-  const goToPrevious = () => setSlide(-1);
-
-  return { direction, selectedItem, goToNext, goToPrevious };
+  return { itemCount };
 };
 
 export default useWeatherList;

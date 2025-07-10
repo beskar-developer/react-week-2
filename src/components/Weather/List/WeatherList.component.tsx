@@ -1,42 +1,21 @@
-import type { Props as ButtonProps } from "@shared-vendor/components/Button/BaseButton.type";
-import type { Props } from "./WeatherList.type";
+import type { IWeatherList } from "./WeatherList.type";
 
 import useWeatherList from "./UseWeatherList.hook";
 
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import { WeatherCard } from "@/components/Weather";
+import WeatherCity from "./WeatherCity.component";
+import WeatherSlider from "./WeatherSlider.component";
 
-const DEFAULT_BUTTON_PROPS: ButtonProps = {
-  className: "shrink-0",
-  variant: "text",
-  icon: true,
-};
-
-const WeatherList = ({ items, cityName }: Props) => {
-  const { direction, selectedItem, goToNext, goToPrevious } = useWeatherList(items);
+const WeatherList = ({ items, cityName, loading }: IWeatherList) => {
+  const { itemCount } = useWeatherList(items);
 
   return (
-    <NotFoundContainer message="لطفا نام شهر را جستجو کنید" itemCount={items.length}>
-      {cityName && (
-        <span className="text-xs">
-          نتایح جستجو برای <strong className="text-base text-indigo-500">{cityName}</strong>
-        </span>
-      )}
+    <LoadingContainer message="در حال گرفتن وضعیت آب و هوا" loading={loading}>
+      <NotFoundContainer message="لطفا نام شهر را جستجو کنید" itemCount={itemCount}>
+        <WeatherCity cityName={cityName} />
 
-      <div className="relative flex items-center justify-center gap-4">
-        <BaseButton onClick={goToNext} {...DEFAULT_BUTTON_PROPS}>
-          <AiOutlineArrowRight />
-        </BaseButton>
-
-        <AnimatePresence custom={direction} initial={false} mode="popLayout">
-          <WeatherCard key={selectedItem?.time} {...selectedItem} />
-        </AnimatePresence>
-
-        <BaseButton onClick={goToPrevious} {...DEFAULT_BUTTON_PROPS}>
-          <AiOutlineArrowLeft />
-        </BaseButton>
-      </div>
-    </NotFoundContainer>
+        <WeatherSlider items={items} />
+      </NotFoundContainer>
+    </LoadingContainer>
   );
 };
 

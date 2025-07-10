@@ -5,13 +5,13 @@ import { citySchema, getCityByNameResponseSchema } from "@/schemas/GeoCoding";
 export type GetCityByNameParams = { name: string };
 export type GetCityByNameResponse = z.infer<typeof getCityByNameResponseSchema>;
 
-export interface Repository {
+export interface IRepository {
   getCityByName: (params: GetCityByNameParams) => Promise<GetCityByNameResponse>;
 }
 
 type CitySchema = z.infer<typeof citySchema>;
 export type City = Omit<CitySchema, "country_code"> & { countryCode: CitySchema["country_code"] };
 
-export interface Service {
+export interface IService {
   getCityByName: (name: string) => Promise<City>;
 }

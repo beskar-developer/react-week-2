@@ -1,4 +1,4 @@
-import type { GetWeatherParams, GetWeatherResponse, Repository as IRepository } from "@/types/Weather";
+import type { GetWeatherParams, GetWeatherResponse, IRepository } from "@/types/Weather";
 
 import client from "@/clients/Weather";
 

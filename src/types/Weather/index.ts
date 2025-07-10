@@ -12,7 +12,7 @@ export type GetWeatherParams = {
 };
 export type GetWeatherResponse = z.infer<typeof getWeatherResponseSchema>;
 
-export interface Repository {
+export interface IRepository {
   getWeather: (params: GetWeatherParams) => Promise<GetWeatherResponse>;
 }
 
@@ -43,7 +43,7 @@ export type Weather = {
 };
 
 export type GetWeatherByGeoCodingParams = GetWeatherParams;
-export interface Service {
+export interface IService {
   getWeatherByGeoCoding: (params: GetWeatherByGeoCodingParams) => Promise<Weather[]>;
   getWeatherByCityName: (name: string) => Promise<{
     weather: Weather[];

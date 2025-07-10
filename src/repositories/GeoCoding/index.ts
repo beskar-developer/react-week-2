@@ -1,8 +1,4 @@
-import type {
-  GetCityByNameParams,
-  GetCityByNameResponse,
-  Repository as IRepository,
-} from "@/types/GeoCoding";
+import type { GetCityByNameParams, GetCityByNameResponse, IRepository } from "@/types/GeoCoding";
 
 import client from "@/clients/GeoCoding";
 

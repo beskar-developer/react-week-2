@@ -1,1 +1,1 @@
-export { default as ActionBar } from "./ActionBar.component";
+export { default as WeatherActionBar } from "./WeatherActionBar.component";

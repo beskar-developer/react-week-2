@@ -1,5 +1,5 @@
 import { Message } from "@shared-vendor/types";
-import type { Service as IService } from "@/types/GeoCoding";
+import type { IService } from "@/types/GeoCoding";
 
 import repository from "@/repositories/GeoCoding";
 
