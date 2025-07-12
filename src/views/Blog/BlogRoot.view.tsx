@@ -1,8 +1,8 @@
-import useRoot from "./UseRoot.hook";
+import useRoot from "./UseBlog.hook";
 
 import { PostActionBar, PostList, PostModalList } from "@/components/Blog";
 
-const Root = () => {
+const BlogRoot = () => {
   const {
     searchedPosts,
     postCount,
@@ -42,4 +42,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default BlogRoot;

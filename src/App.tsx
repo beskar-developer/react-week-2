@@ -1,9 +1,9 @@
-import WeatherRoot from "@/views/Weather/Root.view";
+import BlogRoot from "@/views/Blog/BlogRoot.view";
 
 const App = () => {
   return (
     <div className={twMerge("app-container dark:text-white", "p-0")}>
-      <WeatherRoot />
+      <BlogRoot />
     </div>
   );
 };

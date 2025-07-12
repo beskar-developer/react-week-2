@@ -68,6 +68,9 @@ export default ({ mode = "dev" } = {}) => {
 
   return defineConfig({
     envDir: ENV_DIRECTORY,
+    esbuild: {
+      pure: mode === "prod" ? ["console.log"] : [],
+    },
     server: {
       proxy: {
         "^/(post)(.*)?$": {

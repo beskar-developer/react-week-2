@@ -1,11 +1,7 @@
-import { AiFillInteraction, AiFillPlusCircle } from "react-icons/ai";
+import type { IPostActionBar } from "./PostActionBar.type";
 
-interface IPostActionBar {
-  searchedValue: string;
-  onSearchedValueChange: (value: string) => void;
-  itemCount: number;
-  onRefresh: () => void;
-}
+import PostActionButton from "./PostActionButton.component";
+import PostSearchField from "./PostSearchField.component";
 
 const PostActionBar = ({ searchedValue, onSearchedValueChange, itemCount, onRefresh }: IPostActionBar) => {
   return (
@@ -13,28 +9,13 @@ const PostActionBar = ({ searchedValue, onSearchedValueChange, itemCount, onRefr
       <div className="flex items-center justify-between">
         <ThemeToggleButton />
 
-        <div className="flex gap-4">
-          <BaseButton icon color="emerald" onClick={onRefresh}>
-            <AiFillInteraction />
-          </BaseButton>
-
-          <Modal.Open
-            name="ADD"
-            render={({ open }) => (
-              <BaseButton icon onClick={open}>
-                <AiFillPlusCircle />
-              </BaseButton>
-            )}
-          />
-        </div>
+        <PostActionButton onRefresh={onRefresh} />
       </div>
 
-      <TextField
-        label="جستجو"
-        name="search"
-        value={searchedValue}
-        disabled={!itemCount}
-        onChange={(event) => onSearchedValueChange(event.target.value)}
+      <PostSearchField
+        searchedValue={searchedValue}
+        onSearchedValueChange={onSearchedValueChange}
+        itemCount={itemCount}
       />
     </Card>
   );

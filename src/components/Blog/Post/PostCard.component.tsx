@@ -24,7 +24,24 @@ const actions: IAction[] = [
   },
 ];
 
+type Open = () => void;
+
 const PostCard = ({ id, title, content, onActionClick }: IPostCard) => {
+  const handleActionClick = ({ actionName, open }: { actionName: IAction["name"]; open: Open }) => {
+    onActionClick(id, actionName);
+
+    open();
+  };
+
+  const render = ({ open, action }: { open: Open; action: IAction }) => (
+    <BaseButton
+      icon
+      variant="filled"
+      onClick={() => handleActionClick({ actionName: action.name, open })}
+      {...action}
+    />
+  );
+
   return (
     <Card className="flex flex-col gap-6 p-5">
       <div className="font-xl flex items-center gap-4 font-extrabold">
@@ -39,21 +56,7 @@ const PostCard = ({ id, title, content, onActionClick }: IPostCard) => {
 
       <div className="flex gap-4">
         {actions.map((action) => (
-          <Modal.Open
-            key={action.name}
-            name={action.name}
-            render={({ open }) => (
-              <BaseButton
-                icon
-                variant="filled"
-                onClick={() => {
-                  onActionClick(id, action.name);
-                  open();
-                }}
-                {...action}
-              />
-            )}
-          />
+          <Modal.Open key={action.name} name={action.name} render={({ open }) => render({ open, action })} />
         ))}
       </div>
     </Card>

@@ -2,7 +2,7 @@ import type { Post } from "@/types/Blog";
 
 import service from "@/services/Blog";
 
-const useRoot = () => {
+const useBlog = () => {
   const {
     data: posts,
     setData: setPosts,
@@ -48,4 +48,4 @@ const useRoot = () => {
   };
 };
 
-export default useRoot;
+export default useBlog;
