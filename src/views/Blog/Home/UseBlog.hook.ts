@@ -1,6 +1,10 @@
-import type { Post } from "@/types/Blog";
+import type { OnActionClick, Post, PostAction } from "@/types/Blog";
 
 import service from "@/services/Blog";
+
+import { ROUTES } from "@/constants/Blog";
+
+type ActionMap = Partial<Record<PostAction, (id: Parameters<OnActionClick>[0]) => void>>;
 
 const useBlog = () => {
   const {
@@ -14,6 +18,8 @@ const useBlog = () => {
     key: "POSTS",
   });
   const { items: searchedPosts, searchedValue, setSearchedValue } = useSearch(posts, ["title", "content"]);
+
+  const navigate = useNavigate();
 
   const [selectedPostId, setSelectedPostId] = useState<Post["id"]>(0);
   const selectedPost = findByKey(posts, selectedPostId);
@@ -32,6 +38,23 @@ const useBlog = () => {
       return updatedPosts;
     });
 
+  const redirectToDetails = (id: Post["id"]) =>
+    navigate(
+      generatePath(ROUTES.POST_PATH, {
+        id: String(id),
+      }),
+    );
+
+  const ACTION_MAP: ActionMap = {
+    DETAILS: redirectToDetails,
+  };
+
+  const onActionClick: OnActionClick = (id, action) => {
+    setSelectedPostId(id);
+
+    ACTION_MAP[action]?.(id);
+  };
+
   return {
     searchedPosts,
     postCount,
@@ -45,6 +68,7 @@ const useBlog = () => {
     editPost,
     deletePost,
     reExecute,
+    onActionClick,
   };
 };
 

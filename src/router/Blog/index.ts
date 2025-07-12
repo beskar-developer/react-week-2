@@ -19,6 +19,10 @@ const routes: RouteObject[] = [
         path: ROUTES.ABOUT_US_PATH,
         lazy: lazyRoute(() => import("@/views/Blog/AboutUs/BlogAboutUs.view")),
       },
+      {
+        path: ROUTES.POST_PATH,
+        lazy: lazyRoute(() => import("@/views/Blog/Post/BlogPost.view")),
+      },
     ],
   },
 ];

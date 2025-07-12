@@ -1,10 +1,10 @@
-import type { IPostActionBar } from "./PostActionBar.type";
+import type { IHomeActionBar } from "./HomeActionBar.type";
 
-const PostSearchField = ({
+const HomeSearchField = ({
   searchedValue,
   itemCount,
   onSearchedValueChange,
-}: Pick<IPostActionBar, "searchedValue" | "itemCount" | "onSearchedValueChange">) => {
+}: Pick<IHomeActionBar, "searchedValue" | "itemCount" | "onSearchedValueChange">) => {
   return (
     <TextField
       label="جستجو"
@@ -16,4 +16,4 @@ const PostSearchField = ({
   );
 };
 
-export default PostSearchField;
+export default HomeSearchField;

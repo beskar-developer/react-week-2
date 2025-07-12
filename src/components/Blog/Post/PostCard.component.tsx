@@ -1,63 +1,21 @@
-import type { OnActionClick, Post, PostAction } from "@/types/Blog";
-import type { Props as ButtonProps } from "@shared-vendor/components/Button/BaseButton.type";
+import type { IPostCard } from "./PostCard.type";
 
-import { AiFillDelete, AiFillEdit, AiFillFileText, AiOutlineMore } from "react-icons/ai";
+import PostCardButtonList from "./PostCardButtonList.component";
+import PostCardContent from "./PostCardContent.component";
+import PostCardHeader from "./PostCardHeader.component";
+import PostCardIllustration from "./PostCardIllustration.component";
 
-interface IPostCard extends Post {
-  onActionClick: OnActionClick;
-}
-
-interface IAction extends ButtonProps {
-  name: PostAction;
-}
-
-const actions: IAction[] = [
-  {
-    children: <AiOutlineMore className="rotate-90" />,
-    name: "DETAILS",
-  },
-  { children: <AiFillDelete />, color: "red", name: "DELETE" },
-  {
-    children: <AiFillEdit />,
-    color: "emerald",
-    name: "EDIT",
-  },
-];
-
-type Open = () => void;
-
-const PostCard = ({ id, title, content, onActionClick }: IPostCard) => {
-  const handleActionClick = ({ actionName, open }: { actionName: IAction["name"]; open: Open }) => {
-    onActionClick(id, actionName);
-
-    open();
-  };
-
-  const render = ({ open, action }: { open: Open; action: IAction }) => (
-    <BaseButton
-      icon
-      variant="filled"
-      onClick={() => handleActionClick({ actionName: action.name, open })}
-      {...action}
-    />
-  );
-
+const PostCard = ({ id, title, content, onActionClick, detailed }: IPostCard) => {
   return (
-    <Card className="flex flex-col gap-6 p-5">
-      <div className="font-xl flex items-center gap-4 font-extrabold">
-        <AiFillFileText className="size-8 fill-indigo-500" />
+    <Card className={twMerge("p-5", detailed && "flex flex-col items-center md:flex-row")}>
+      <PostCardIllustration detailed={detailed} />
 
-        <span>{title}</span>
-      </div>
+      <div className="flex flex-col gap-6">
+        <PostCardHeader title={title} />
 
-      <p className="w-full overflow-hidden overflow-ellipsis whitespace-nowrap text-gray-500 dark:text-gray-400">
-        {content}
-      </p>
+        <PostCardContent content={content} detailed={detailed} />
 
-      <div className="flex gap-4">
-        {actions.map((action) => (
-          <Modal.Open key={action.name} name={action.name} render={({ open }) => render({ open, action })} />
-        ))}
+        <PostCardButtonList id={id} onActionClick={onActionClick} detailed={detailed} />
       </div>
     </Card>
   );

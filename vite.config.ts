@@ -33,7 +33,7 @@ const AUTO_IMPORT_CONFIG = {
     },
     {
       from: "react-router",
-      imports: ["RouterProvider", "createHashRouter", "Outlet", "redirect"],
+      imports: ["RouterProvider", "createHashRouter", "Outlet", "redirect", "generatePath"],
     },
     {
       from: "motion",

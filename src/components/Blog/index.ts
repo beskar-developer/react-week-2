@@ -1,6 +1,6 @@
 export { default as PostCard } from "./Post/PostCard.component";
-export { PostActionBar, AboutUsActionBar } from "./Action";
-export { default as PostList } from "./Post/PostList.component";
+export { HomeActionBar, AboutUsActionBar } from "./Action";
+export { PostList, PostDetails } from "./Post";
 export { PostDeleteModal } from "./DeleteModal";
 export { PostActionModal } from "./ActionModal";
 export { default as PostModalList } from "./ModalList/PostModalList.component";

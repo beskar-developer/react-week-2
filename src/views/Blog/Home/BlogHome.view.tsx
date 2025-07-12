@@ -1,6 +1,6 @@
 import useBlog from "./UseBlog.hook";
 
-import { PostActionBar, PostList, PostModalList } from "@/components/Blog";
+import { HomeActionBar, PostList, PostModalList } from "@/components/Blog";
 
 const BlogHome = () => {
   const {
@@ -10,24 +10,24 @@ const BlogHome = () => {
     selectedPost,
     loading,
     setSearchedValue,
-    setSelectedPostId,
     selectedPostId,
     addPost,
     editPost,
     deletePost,
     reExecute,
+    onActionClick,
   } = useBlog();
 
   return (
     <Modal>
-      <PostActionBar
+      <HomeActionBar
         searchedValue={searchedValue}
         itemCount={postCount}
         onSearchedValueChange={setSearchedValue}
         onRefresh={reExecute}
       />
 
-      <PostList items={searchedPosts} loading={loading} onActionClick={(id) => setSelectedPostId(id)} />
+      <PostList items={searchedPosts} loading={loading} onActionClick={onActionClick} />
 
       <PostModalList
         selectedPost={selectedPost}

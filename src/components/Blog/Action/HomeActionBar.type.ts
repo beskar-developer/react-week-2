@@ -1,4 +1,4 @@
-export interface IPostActionBar {
+export interface IHomeActionBar {
   searchedValue: string;
   onSearchedValueChange: (value: string) => void;
   itemCount: number;

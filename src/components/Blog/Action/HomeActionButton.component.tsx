@@ -1,13 +1,13 @@
-import type { IPostActionBar } from "./PostActionBar.type";
+import type { IHomeActionBar } from "./HomeActionBar.type";
 
-import usePostActionButton from "./UsePostActionButton.hook";
+import useHomeActionButton from "./UseHomeActionButton.hook";
 
 import { AiFillInfoCircle, AiFillInteraction, AiFillPlusCircle } from "react-icons/ai";
 
 type Open = () => void;
 
-const PostActionButton = ({ onRefresh }: Pick<IPostActionBar, "onRefresh">) => {
-  const { redirectToAboutUs } = usePostActionButton();
+const HomeActionButton = ({ onRefresh }: Pick<IHomeActionBar, "onRefresh">) => {
+  const { redirectToAboutUs } = useHomeActionButton();
 
   const render = ({ open }: { open: Open }) => (
     <BaseButton icon onClick={open}>
@@ -30,4 +30,4 @@ const PostActionButton = ({ onRefresh }: Pick<IPostActionBar, "onRefresh">) => {
   );
 };
 
-export default PostActionButton;
+export default HomeActionButton;
