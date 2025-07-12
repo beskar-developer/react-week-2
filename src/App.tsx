@@ -1,9 +1,9 @@
-import BlogRoot from "@/views/Blog/BlogRoot.view";
+import router from "@/router";
 
 const App = () => {
   return (
     <div className={twMerge("app-container dark:text-white", "p-0")}>
-      <BlogRoot />
+      <RouterProvider router={router} />
     </div>
   );
 };

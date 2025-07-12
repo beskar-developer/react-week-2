@@ -13,6 +13,7 @@ const AUTO_IMPORT_CONFIG = {
   include: [JS_FILE_PATTERN],
   imports: [
     "react",
+    "react-router",
     {
       from: "react",
       imports: [
@@ -24,6 +25,15 @@ const AUTO_IMPORT_CONFIG = {
         "PropsWithChildren",
       ],
       type: true,
+    },
+    {
+      from: "react-router",
+      imports: ["RouteObject"],
+      type: true,
+    },
+    {
+      from: "react-router",
+      imports: ["RouterProvider", "createHashRouter", "Outlet", "redirect"],
     },
     {
       from: "motion",
